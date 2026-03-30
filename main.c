@@ -128,6 +128,7 @@ void leEntrada(char mat[][MAX_COLUNAS], cobra *play){
     printf("Digite o proximo movimento: ");
     scanf(" %c", &entrada);
     
+    //tratamento de entradas inválidas
     if(entrada != 'a' && entrada != 'w' && entrada != 's' && entrada != 'd'){
         printf("Comando Invalido!\n");
         return;
@@ -159,10 +160,8 @@ void leEntrada(char mat[][MAX_COLUNAS], cobra *play){
         play->vet[0].posJ++;
     }
     
-    
     //verifica oque acontece com essa movimentação
     verifica_acao(mat, play);
-
 
     //atualiza cobra no mapa
     for (int i = 0; i < TAM_COBRA; i++){
