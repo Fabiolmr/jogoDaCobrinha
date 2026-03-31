@@ -2,6 +2,15 @@
 
 //verifica ação
 void verifica_acao(char mat[][MAX_COLUNAS], cobra *play){
+    //realisa loop no mapa
+    if(play->vet[0].posI == MAX_LINHAS-1) play->vet[0].posI = 1;
+
+    else if(play->vet[0].posI == 0) play->vet[0].posI = MAX_LINHAS-2;
+
+    else if(play->vet[0].posJ == MAX_COLUNAS-1) play->vet[0].posJ = 1;
+
+    else if(play->vet[0].posJ == 0) play->vet[0].posJ = MAX_COLUNAS-2;
+
     //se bateu no obstaculo, perde uma vida
     if(mat[play->vet[0].posI][play->vet[0].posJ] == '#' || mat[play->vet[0].posI][play->vet[0].posJ] == 'S'){
         play->life--;
@@ -22,15 +31,6 @@ void verifica_acao(char mat[][MAX_COLUNAS], cobra *play){
         cont_comida--;
         if(cont_comida == 0) estado = 1; //se comeu tudo, acaba o jogo
     }
-
-    //realisa loop no mapa
-    else if(play->vet[0].posI == MAX_LINHAS-1) play->vet[0].posI = 1;
-
-    else if(play->vet[0].posI == 0) play->vet[0].posI = MAX_LINHAS-2;
-
-    else if(play->vet[0].posJ == MAX_COLUNAS-1) play->vet[0].posJ = 1;
-
-    else if(play->vet[0].posJ == 0) play->vet[0].posJ = MAX_COLUNAS-2;
 
 }
 
